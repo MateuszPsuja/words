@@ -54,7 +54,7 @@ describe('Words effects', () => {
       ],
     });
 
-    effects = TestBed.get(WordsEffects);
+    effects = TestBed.inject(WordsEffects);
   });
 
   describe('when getWord$ effect api response is without errors', () => {

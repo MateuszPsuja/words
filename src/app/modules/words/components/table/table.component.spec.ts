@@ -1,13 +1,12 @@
-import { Observable, BehaviorSubject } from 'rxjs/';
-import { async, tick, fakeAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component, ViewChild, EventEmitter, Input, Output, OnInit, OnChanges, SimpleChanges, NO_ERRORS_SCHEMA,
-   CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { TableComponent } from './table.component';
-import { By } from '@angular/platform-browser';
+import {BehaviorSubject} from 'rxjs/';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {Component, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {TableComponent} from './table.component';
+import {By} from '@angular/platform-browser';
 
 const wordsTableInputMock = [
-  { id: 2652741, word: 'thickos', translation: 'thickos' },
-  { id: 632499, word: 'Transylvanians', translation: 'Transylvanians' },
+  {id: 2652741, word: 'thickos', translation: 'thickos'},
+  {id: 632499, word: 'Transylvanians', translation: 'Transylvanians'},
 ];
 
 const wordsTableEmptyInputMock = [-1];
@@ -29,13 +28,14 @@ describe('TableComponent', () => {
   let fixture: ComponentFixture<TestHostComponent>;
 
   @Component({
-    template: `<app-table
-      [wordsTablePaginated$]=wordsTable
-      (translateAction)='translateAction($event)'
-      (deleteAction)='deleteAction($event)'
-      (changedAction)='changedAction($event)'>
-    </app-table>`,
-  })
+               template: `
+                 <app-table
+                   [wordsTablePaginated$]=wordsTable
+                   (translateAction)='translateAction($event)'
+                   (deleteAction)='deleteAction($event)'
+                   (changedAction)='changedAction($event)'>
+                 </app-table>`,
+             })
   class TestHostComponent {
 
     public translate: any;
@@ -58,10 +58,10 @@ describe('TableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestHostComponent, TableComponent ],
-      schemas: [ NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA ],
-    })
-    .compileComponents();
+                                     declarations: [TestHostComponent, TableComponent],
+                                     schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
+                                   })
+      .compileComponents();
   }));
 
   beforeEach(() => {

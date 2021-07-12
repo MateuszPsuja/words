@@ -1,16 +1,16 @@
-import { By } from '@angular/platform-browser';
-import { of } from 'rxjs';
-import { Store } from '@ngrx/store';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {By} from '@angular/platform-browser';
+import {of} from 'rxjs';
+import {Store} from '@ngrx/store';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {
   Component,
   ViewChild,
   NO_ERRORS_SCHEMA,
   ViewContainerRef,
 } from '@angular/core';
-import { BsModalService } from 'ngx-bootstrap/modal';
+import {BsModalService} from 'ngx-bootstrap/modal';
 
-import { ErrorModalComponent } from './error-modal.component';
+import {ErrorModalComponent} from './error-modal.component';
 
 const mockStoreData = {
   isError: true,
@@ -24,7 +24,7 @@ const mockStoreData = {
 const mockModalService = {
   show: jasmine
     .createSpy('show')
-    .and.returnValue({ hide: jasmine.createSpy('hide') }),
+    .and.returnValue({hide: jasmine.createSpy('hide')}),
 };
 
 const mockStore = {
@@ -35,16 +35,18 @@ const mockStore = {
 };
 
 @Component({
-  template: `<app-error-modal></app-error-modal>`,
-})
+             template: `
+               <app-error-modal></app-error-modal>`,
+           })
 class TestHostComponent {
   @ViewChild(ErrorModalComponent, /* TODO: add static flag */ <any>{})
   public errorModalComponent: ErrorModalComponent;
 
-  @ViewChild(ErrorModalComponent, /* TODO: add static flag */ <any>{ read: ViewContainerRef })
+  @ViewChild(ErrorModalComponent, /* TODO: add static flag */ <any>{read: ViewContainerRef})
   vcr: ViewContainerRef;
 
-  constructor(public view: ViewContainerRef) {}
+  constructor(public view: ViewContainerRef) {
+  }
 }
 
 describe('ErrorModalComponent', () => {
@@ -53,13 +55,13 @@ describe('ErrorModalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TestHostComponent, ErrorModalComponent],
-      providers: [
-        { provide: Store, useValue: mockStore },
-        { provide: BsModalService, useValue: mockModalService },
-      ],
-      schemas: [ NO_ERRORS_SCHEMA ],
-    }).compileComponents();
+                                     declarations: [TestHostComponent, ErrorModalComponent],
+                                     providers: [
+                                       {provide: Store, useValue: mockStore},
+                                       {provide: BsModalService, useValue: mockModalService},
+                                     ],
+                                     schemas: [NO_ERRORS_SCHEMA],
+                                   }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -95,8 +97,8 @@ describe('ErrorModalComponent', () => {
       .triggerEventHandler('click', new Event('click'));
     fixture.detectChanges();
     expect(mockStore.dispatch).toHaveBeenCalledWith({
-      type: '[Error] Clear error',
-    });
+                                                      type: '[Error] Clear error',
+                                                    });
     expect(component.errorModalComponent.modalRef.hide).toHaveBeenCalled();
   });
 });

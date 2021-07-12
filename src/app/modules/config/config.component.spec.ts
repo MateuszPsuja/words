@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Store, StateObservable } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { By } from '@angular/platform-browser';
 
 import { ConfigComponent } from './config.component';

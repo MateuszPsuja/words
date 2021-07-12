@@ -1,6 +1,6 @@
 import { ReactiveFormsModule } from '@angular/forms';
 import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
-import { NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA, ViewChild, Component, DebugElement } from '@angular/core';
+import { NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA, ViewChild, Component } from '@angular/core';
 import { EditComponent } from './edit.component';
 import { By } from '@angular/platform-browser';
 

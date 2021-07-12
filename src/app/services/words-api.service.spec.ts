@@ -1,6 +1,5 @@
-import { TestBed, getTestBed, inject } from '@angular/core/testing';
+import { TestBed, getTestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { HttpParams } from '@angular/common/http';
 
 import { WordsApiService } from './words-api.service';
 
@@ -21,8 +20,8 @@ describe('WordsApiService', () => {
     });
 
     injector = getTestBed();
-    service = injector.get(WordsApiService);
-    httpMock = injector.get(HttpTestingController);
+    service = injector.inject(WordsApiService);
+    httpMock = injector.inject(HttpTestingController);
   });
 
   afterEach(() => {
