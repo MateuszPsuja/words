@@ -18,7 +18,13 @@
     "arrow-parens": false,
     "no-duplicate-imports": true, // 10.4
     "one-variable-per-declaration": [true, "ignore-for-loop"], // 13.2
-    "triple-equals": [true, "allow-null-check"], // 15.1
+    "triple-equals": [
+      true,
+      "allow-null-check"
+    ],
+    "deprecation": {
+      "severity": "warning"
+    }, // 15.1
     "no-boolean-literal-compare": true, // 15.3
     "comment-format": [true, "check-space"], // 17.3
     "indent": [true, "spaces"],
@@ -95,7 +101,6 @@
     "no-trailing-whitespace": true,
     "no-unnecessary-initializer": true,
     "no-unused-expression": true,
-    "no-use-before-declare": true,
     "object-literal-sort-keys": false,
     "one-line": [
       true,

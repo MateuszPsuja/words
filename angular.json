@@ -164,9 +164,7 @@
   },
   "defaultProject": "angular-starter",
   "cli": {
-    "warnings": {
-      "typescriptMismatch": false
-    }
+    "warnings": {}
   },
   "schematics": {
     "@schematics/angular:component": {
