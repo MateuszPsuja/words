@@ -6,7 +6,7 @@
     "node": ">= 6.9.0",
     "npm": ">= 3.0.0"
   },
-  "author": "aresimo",
+  "author": "Mateusz Psuja",
   "scripts": {
     "precommit": "npm run lint",
     "prepush": "ng test --watch=false",
