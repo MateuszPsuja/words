@@ -1,5 +1,5 @@
 import {BehaviorSubject} from 'rxjs/';
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {Component, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {TableComponent} from './table.component';
 import {By} from '@angular/platform-browser';
@@ -56,7 +56,7 @@ describe('TableComponent', () => {
     }
   }
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
                                      declarations: [TestHostComponent, TableComponent],
                                      schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],

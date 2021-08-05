@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { Store } from '@ngrx/store';
 import { By } from '@angular/platform-browser';
 
@@ -13,7 +13,7 @@ describe('ConfigComponent', () => {
     dispatch: jasmine.createSpy('dispatch'),
   };
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ConfigComponent ],
       providers: [ { provide: Store, useValue: mockStore } ],

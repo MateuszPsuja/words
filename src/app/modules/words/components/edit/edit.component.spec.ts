@@ -1,5 +1,5 @@
 import { ReactiveFormsModule } from '@angular/forms';
-import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync, tick, waitForAsync } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA, ViewChild, Component } from '@angular/core';
 import { EditComponent } from './edit.component';
 import { By } from '@angular/platform-browser';
@@ -27,7 +27,7 @@ describe('EditComponent', () => {
     }
   }
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [ ReactiveFormsModule ],
       declarations: [ TestHostComponent, EditComponent ],

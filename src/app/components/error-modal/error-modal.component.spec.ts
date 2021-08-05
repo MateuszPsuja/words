@@ -1,7 +1,7 @@
 import {By} from '@angular/platform-browser';
 import {of} from 'rxjs';
 import {Store} from '@ngrx/store';
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
   Component,
   ViewChild,
@@ -53,7 +53,7 @@ describe('ErrorModalComponent', () => {
   let component: TestHostComponent;
   let fixture: ComponentFixture<TestHostComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
                                      declarations: [TestHostComponent, ErrorModalComponent],
                                      providers: [
