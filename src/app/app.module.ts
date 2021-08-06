@@ -55,7 +55,7 @@ const metaReducers = [ localStorageSyncReducer ];
         metaReducers,
       },
     ),
-    StoreRouterConnectingModule,
+    StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument(),
     AppRoutingModule,
   ],
