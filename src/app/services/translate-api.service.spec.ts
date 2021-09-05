@@ -1,6 +1,5 @@
-import { TestBed, getTestBed, inject } from '@angular/core/testing';
+import { TestBed, getTestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { HttpParams } from '@angular/common/http';
 
 import { TranslateApiService } from './translate-api.service';
 
@@ -36,7 +35,7 @@ describe('TranslateApiService', () => {
 
   describe('translate()', () => {
     it('should get translation from API', () => {
-      service.translate('verb', 'en-pl', 0).subscribe((translation) => {
+      service.translate('verb', 'en|pl').subscribe((translation) => {
         expect(translation).toEqual(responseMock);
       });
 
@@ -44,7 +43,7 @@ describe('TranslateApiService', () => {
     });
 
     it('should get error response', () => {
-      service.translate('verb', 'en-pl', 0).subscribe(
+      service.translate('verb', 'en|pl').subscribe(
         () => {},
         (err) => {
           expect(err).toBeTruthy();
@@ -54,12 +53,12 @@ describe('TranslateApiService', () => {
     });
 
     it('should have parameters', () => {
-      service.translate('verb', 'en-pl', 0).subscribe(() => {});
+      service.translate('verb', 'en|pl').subscribe(() => {});
 
       const reqMock = httpMock.expectOne(req => req.url === service.url);
-      expect(reqMock.request.params.has('key')).toBeTruthy();
-      expect(reqMock.request.params.has('text')).toBeTruthy();
-      expect(reqMock.request.params.get('text')).toEqual('verb');
+      expect(reqMock.request.params.has('q')).toBeTruthy();
+      expect(reqMock.request.params.has('langpair')).toBeTruthy();
+      expect(reqMock.request.params.get('q')).toEqual('verb');
       reqMock.flush({});
     });
   });

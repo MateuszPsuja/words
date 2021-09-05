@@ -1,7 +1,7 @@
 import { of, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { switchMap, map, catchError } from 'rxjs/operators';
+import {switchMap, map, catchError} from 'rxjs/operators';
 
 import { TranslateApiService } from './../../../services/translate-api.service';
 import { WordsApiService } from './../../../services/words-api.service';
@@ -35,11 +35,11 @@ export class WordsEffects {
     .pipe(
       switchMap(action =>
         this.translateApiService
-          .translate(action.payload.word, 'en-pl', 0)
+          .translate(action.payload.word, 'en|pl')
           .pipe(
             map(response => ({
               id: action.payload.id,
-              translation: response.text[0],
+              translation: response.responseData.translatedText,
             })),
           )
           .pipe(

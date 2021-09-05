@@ -12,10 +12,9 @@ cd words
 npm install
 rename environment.dev.ts.example to environment.dev.ts
 edit file and add wordsApiKey (wordnik)
-edit file and add translateApiKey (yandex translation)
 npm start to serve application
 
-You need api key for wordnik.com and yandex translation.
+You need api key for wordnik.com
 You can put api keys in environment files.
 
 You can obtain keys here:

@@ -14,9 +14,10 @@ const mockTranslatePayload = {
   id: '123123',
   translation: 'zielony',
 };
-
 const mockTranslateServiceResponse = {
-  text: ['zielony'],
+  responseData: {
+    translatedText: 'zielony',
+  },
 };
 
 const mockWordToTranslate = {
@@ -89,6 +90,7 @@ describe('Words effects', () => {
 
   describe('when translateWord$ effect api response is without errors', () => {
     it('should return TranslateWordsSuccess with payload', () => {
+
       const action = new WordsActions.TranslateWord(mockWordToTranslate);
       const completion = new WordsActions.TranslateWordSuccess(
         mockTranslatePayload,
@@ -96,7 +98,6 @@ describe('Words effects', () => {
 
       actions = hot('--a-', { a: action });
       const expected = cold('--b', { b: completion });
-
       expect(effects.translateWord$).toBeObservable(expected);
       expect(mockTranslateApiService.translate).toHaveBeenCalled();
     });

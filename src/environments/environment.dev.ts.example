@@ -6,6 +6,5 @@ export const environment = {
   URL: '',
   wordsApiKey: '',
   wordsApiUrl: 'http://api.wordnik.com:80/v4/words.json/randomWord',
-  translateApiKey: '',
   translateUrl: 'https://translate.yandex.net/api/v1.5/tr.json/getLangs',
 };
