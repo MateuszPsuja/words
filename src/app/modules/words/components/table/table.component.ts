@@ -1,24 +1,30 @@
-import { Observable } from 'rxjs';
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import {Observable} from 'rxjs';
+import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
 
-import { WordTablePaginated } from './../../interfaces/wordTablePaginated.interface';
+import {WordTablePaginated} from './../../interfaces/wordTablePaginated.interface';
+
+export interface WordData {
+  id: string;
+  word: string;
+}
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: [ './table.component.scss' ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-})
+             selector: 'app-table',
+             templateUrl: './table.component.html',
+             styleUrls: ['./table.component.scss'],
+             changeDetection: ChangeDetectionStrategy.OnPush,
+           })
 export class TableComponent {
 
   @Input() wordsTablePaginated$: Observable<WordTablePaginated>;
-  @Output() translateAction: EventEmitter<any> = new EventEmitter();
-  @Output() deleteAction: EventEmitter<any> = new EventEmitter();
-  @Output() changedAction: EventEmitter<any> = new EventEmitter();
+  @Output() translateAction: EventEmitter<WordData> = new EventEmitter();
+  @Output() deleteAction: EventEmitter<Event> = new EventEmitter();
+  @Output() changedAction: EventEmitter<Event> = new EventEmitter();
 
   public isEdit: number | boolean = false;
 
-  constructor() {}
+  constructor() {
+  }
 
   public translate(wordIdData: string, wordData: string): void {
     this.translateAction.emit(

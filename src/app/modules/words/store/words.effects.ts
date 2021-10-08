@@ -23,7 +23,7 @@ export class WordsEffects {
               word: wordObject.word,
             };
           }),
-          map((data: any) => new WordsActions.GetWordSuccess(data)),
+          map(data => new WordsActions.GetWordSuccess(data)),
           catchError(error => of(new WordsActions.GetWordError(error))),
         ),
       ),

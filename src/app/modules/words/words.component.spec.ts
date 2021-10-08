@@ -7,6 +7,7 @@ import { of } from 'rxjs';
 import { WordsComponent } from './words.component';
 import { WordsApiService } from './../../services/words-api.service';
 import { WordFilterPipe } from './../../pipes/word-filter.pipe';
+import {WordData} from './components/table/table.component';
 
 const mockStoreData = {
   isPending: false,
@@ -110,7 +111,7 @@ describe('WordsComponent', () => {
   });
 
   it('should dispatch action TRANSLATE_WORD with payload after translateAction event', (): void => {
-    component.translate(translateEventMock);
+    component.translate(translateEventMock as unknown as WordData);
     expect(mockStore.dispatch).toHaveBeenCalledWith(translateExpected);
   });
 

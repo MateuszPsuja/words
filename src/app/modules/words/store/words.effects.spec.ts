@@ -7,6 +7,7 @@ import { TranslateApiService } from './../../../services/translate-api.service';
 import { WordsApiService } from './../../../services/words-api.service';
 import { WordsEffects } from './words.effects';
 import * as WordsActions from './words.actions';
+import {WordsAction} from './words.interfaces';
 
 const mockWordPayload = { id: '98798', word: 'Shift' };
 
@@ -35,9 +36,9 @@ const mockTranslateApiService = {
 
 describe('Words effects', () => {
   let effects: WordsEffects;
-  let actions: Observable<any>;
-  let responseWord: BehaviorSubject<any>;
-  let responseTranslate: BehaviorSubject<any>;
+  let actions: Observable<WordsAction>;
+  let responseWord: BehaviorSubject<{ id: string; word: string }>;
+  let responseTranslate: BehaviorSubject<{ responseData: { translatedText: string } }>;
 
   beforeEach(() => {
     responseWord = new BehaviorSubject(mockWordPayload);
