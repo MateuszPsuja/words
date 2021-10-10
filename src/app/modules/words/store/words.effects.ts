@@ -1,6 +1,6 @@
 import { of, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType } from '@ngrx/effects';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import {switchMap, map, catchError} from 'rxjs/operators';
 
 import { TranslateApiService } from './../../../services/translate-api.service';
@@ -11,10 +11,9 @@ import * as WordsActions from './words.actions';
 @Injectable()
 export class WordsEffects {
 
-  @Effect()
-  getWord$: Observable<WordsAction> = this.actions$
-    .pipe(ofType<WordsAction>(WordsActions.GET_WORD))
+  getWord$: Observable<WordsAction> = createEffect(() => this.actions$
     .pipe(
+      ofType<WordsAction>(WordsActions.GET_WORD),
       switchMap(() =>
         this.wordsApiService.word().pipe(
           map(wordObject => {
@@ -27,12 +26,11 @@ export class WordsEffects {
           catchError(error => of(new WordsActions.GetWordError(error))),
         ),
       ),
-    );
+    ));
 
-  @Effect()
-  translateWord$: Observable<WordsAction> = this.actions$
-    .pipe(ofType<WordsAction>(WordsActions.TRANSLATE_WORD))
+  translateWord$: Observable<WordsAction> = createEffect(() => this.actions$
     .pipe(
+      ofType<WordsAction>(WordsActions.TRANSLATE_WORD),
       switchMap(action =>
         this.translateApiService
           .translate(action.payload.word, 'en|pl')
@@ -47,7 +45,7 @@ export class WordsEffects {
             catchError(error => of(new WordsActions.TranslateWordError(error))),
           ),
       ),
-    );
+    ));
 
   constructor(
     private actions$: Actions,
