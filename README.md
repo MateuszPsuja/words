@@ -20,7 +20,3 @@ You can put api keys in environment files.
 You can obtain keys here:
 
 https://developer.wordnik.com/#wordnikUsername
-
-and
-
-https://tech.yandex.com/translate/
