@@ -22,10 +22,6 @@
       true,
       "allow-null-check"
     ],
-    "deprecation": {
-      "severity": "warning"
-    }, // 15.1
-    "no-boolean-literal-compare": true, // 15.3
     "comment-format": [true, "check-space"], // 17.3
     "indent": [true, "spaces"],
     "whitespace": [
@@ -130,11 +126,6 @@
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true,
-    "no-access-missing-member": false,
-    "strict-boolean-expressions": [
-      true,
-      "allow-undefined-union",
-      "allow-null-union"
-    ]
+    "no-access-missing-member": false
   }
 }
