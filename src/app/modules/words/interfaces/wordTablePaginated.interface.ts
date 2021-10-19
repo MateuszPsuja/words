@@ -1,4 +1,4 @@
-import { WordTableRow } from './wordTableRow.interface';
+import {WordTableRow} from './wordTableRow.interface';
 
 export interface WordTablePaginated {
   [index: number]: {

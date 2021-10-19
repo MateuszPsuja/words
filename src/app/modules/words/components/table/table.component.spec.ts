@@ -1,8 +1,9 @@
 import {BehaviorSubject} from 'rxjs/';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {Component, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import {TableComponent} from './table.component';
 import {By} from '@angular/platform-browser';
+
+import {TableComponent} from './table.component';
 
 const wordsTableInputMock = [
   {id: 2652741, word: 'thickos', translation: 'thickos'},

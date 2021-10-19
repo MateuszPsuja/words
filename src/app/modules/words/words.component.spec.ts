@@ -1,12 +1,12 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { By } from '@angular/platform-browser';
-import { of } from 'rxjs';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {By} from '@angular/platform-browser';
+import {of} from 'rxjs';
 
-import { WordsComponent } from './words.component';
-import { WordsApiService } from './../../services/words-api.service';
-import { WordFilterPipe } from './../../pipes/word-filter.pipe';
+import {WordsComponent} from './words.component';
+import {WordsApiService} from './../../services/words-api.service';
+import {WordFilterPipe} from './../../pipes/word-filter.pipe';
 import {WordData} from './components/table/table.component';
 
 const mockStoreData = {
@@ -42,7 +42,8 @@ const expectedData = [
   {
     id: 2781169,
     word: 'pace-setters',
-    translation: 'tempo-setery' },
+    translation: 'tempo-setery',
+  },
 ];
 
 const mockWordsApiService = {
@@ -61,7 +62,7 @@ const translateEventMock = {
 
 const translateExpected = {
   type: '[Words] Translate word',
-  payload: { id: 1212, word: 'lorem' },
+  payload: {id: 1212, word: 'lorem'},
 };
 
 const deleteExpected = {
@@ -92,15 +93,15 @@ describe('WordsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ WordsComponent ],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ],
-      providers: [
-        { provide: WordsApiService, useValue: mockWordsApiService },
-        { provide: Store, useValue: mockStore },
-        WordFilterPipe,
-      ],
-    })
-    .compileComponents();
+                                     declarations: [WordsComponent],
+                                     schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
+                                     providers: [
+                                       {provide: WordsApiService, useValue: mockWordsApiService},
+                                       {provide: Store, useValue: mockStore},
+                                       WordFilterPipe,
+                                     ],
+                                   })
+      .compileComponents();
     fixture = TestBed.createComponent(WordsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -121,12 +122,12 @@ describe('WordsComponent', () => {
   });
 
   it('should dispatch action DELETE_WORD with payload after changedAction event', (): void => {
-    component.wordChanged({ word: '', id: 1212 });
+    component.wordChanged({word: '', id: 1212});
     expect(mockStore.dispatch).toHaveBeenCalledWith(changedDeleteExpected);
   });
 
   it('should dispatch action EDIT_WORD with payload after changedAction event', (): void => {
-    component.wordChanged({ word: 'lorem', id: 1212 });
+    component.wordChanged({word: 'lorem', id: 1212});
     expect(mockStore.dispatch).toHaveBeenCalledWith(changedEditExpected);
   });
 
@@ -141,7 +142,7 @@ describe('WordsComponent', () => {
   });
 
   it('should set searchInput property after pageChanged event', (): void => {
-    component.changeCurrentPage({ itemsPerPage: 1, page: 2 });
+    component.changeCurrentPage({itemsPerPage: 1, page: 2});
     expect(component.currentPage).toEqual(2);
   });
 

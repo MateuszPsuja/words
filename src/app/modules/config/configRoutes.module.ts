@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 
-import { ConfigComponent } from './config.component';
+import {ConfigComponent} from './config.component';
 
 export const configRoutes: Routes = [
   {
@@ -11,7 +11,8 @@ export const configRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(configRoutes)],
-  exports: [RouterModule],
-})
-export class ConfigRoutesModule {}
+            imports: [RouterModule.forChild(configRoutes)],
+            exports: [RouterModule],
+          })
+export class ConfigRoutesModule {
+}

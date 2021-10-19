@@ -1,7 +1,7 @@
-import { TestBed, getTestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {TestBed, getTestBed} from '@angular/core/testing';
+import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 
-import { WordsApiService } from './words-api.service';
+import {WordsApiService} from './words-api.service';
 
 describe('WordsApiService', () => {
   let injector: TestBed;
@@ -15,9 +15,9 @@ describe('WordsApiService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule ],
-      providers: [ WordsApiService ],
-    });
+                                     imports: [HttpClientTestingModule],
+                                     providers: [WordsApiService],
+                                   });
 
     injector = getTestBed();
     service = injector.inject(WordsApiService);
@@ -44,7 +44,8 @@ describe('WordsApiService', () => {
 
     it('should get error response', () => {
       service.word().subscribe(
-        () => {},
+        () => {
+        },
         (err) => {
           expect(err).toBeTruthy();
         });
@@ -53,7 +54,8 @@ describe('WordsApiService', () => {
     });
 
     it('should have parameters', () => {
-      service.word().subscribe(() => {});
+      service.word().subscribe(() => {
+      });
 
       const reqMock = httpMock.expectOne(req => req.url === service.url);
       expect(reqMock.request.params.has('api_key')).toBeTruthy();

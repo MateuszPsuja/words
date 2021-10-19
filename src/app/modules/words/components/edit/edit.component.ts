@@ -1,13 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild,
-  OnChanges, SimpleChanges, ChangeDetectionStrategy, ElementRef } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import {
+  Component, OnInit, Input, Output, EventEmitter, ViewChild,
+  OnChanges, SimpleChanges, ChangeDetectionStrategy, ElementRef,
+} from '@angular/core';
+import {FormControl} from '@angular/forms';
 
-@Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-})
+@Component({selector: 'app-edit', templateUrl: './edit.component.html',
+             styleUrls: ['./edit.component.scss'], changeDetection: ChangeDetectionStrategy.OnPush,
+           })
 export class EditComponent implements OnInit, OnChanges {
 
   @Input() wordValue = '';
@@ -18,7 +17,8 @@ export class EditComponent implements OnInit, OnChanges {
 
   public wordInput: FormControl;
 
-  constructor() { }
+  constructor() {
+  }
 
   public ngOnInit() {
     this.wordInput = new FormControl(this.wordValue);
@@ -35,7 +35,7 @@ export class EditComponent implements OnInit, OnChanges {
   }
 
   public saveWord(): void {
-    this.changedWordValue.emit({ id: this.wordId, word: this.wordInput.value });
+    this.changedWordValue.emit({id: this.wordId, word: this.wordInput.value});
   }
 
   public saveOnEnter(event: any): void {

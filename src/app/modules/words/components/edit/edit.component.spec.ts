@@ -1,27 +1,34 @@
-import { ReactiveFormsModule } from '@angular/forms';
-import { ComponentFixture, TestBed, fakeAsync, tick, waitForAsync } from '@angular/core/testing';
-import { NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA, ViewChild, Component } from '@angular/core';
-import { EditComponent } from './edit.component';
-import { By } from '@angular/platform-browser';
+import {ReactiveFormsModule} from '@angular/forms';
+import {ComponentFixture, TestBed, fakeAsync, tick, waitForAsync} from '@angular/core/testing';
+import {NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA, ViewChild, Component} from '@angular/core';
+import {EditComponent} from './edit.component';
+import {By} from '@angular/platform-browser';
 
-const expectedValue = { id: '123', word: 'Test' };
+const expectedValue = {id: '123', word: 'Test'};
+
+export interface WordValue {
+  id: string;
+  word: string;
+}
 
 describe('EditComponent', () => {
   let component: TestHostComponent;
   let fixture: ComponentFixture<TestHostComponent>;
 
   @Component({
-    template: `<app-edit (changedWordValue)="getOutput($event)"
-      wordValue='lorem ipsum'
-      wordId='123'
-      [isEdit]='isEdit'
-      ></app-edit>`,
-  })
+               template: `
+                 <app-edit (changedWordValue)="getOutput($event)"
+                           wordValue='lorem ipsum'
+                           wordId='123'
+                           [isEdit]='isEdit'
+                 ></app-edit>`,
+             })
   class TestHostComponent {
-    @ViewChild(EditComponent, /* TODO: add static flag */ <any>{})
+    @ViewChild(EditComponent, <any>{})
     public editComponent: EditComponent;
-    public outputValue: any;
-    public isEdit: any = 123;
+    public outputValue: WordValue;
+    public isEdit: boolean | number = 123;
+
     public getOutput(event) {
       this.outputValue = event;
     }
@@ -29,11 +36,11 @@ describe('EditComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ ReactiveFormsModule ],
-      declarations: [ TestHostComponent, EditComponent ],
-      schemas: [ NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA ],
-    })
-    .compileComponents();
+                                     imports: [ReactiveFormsModule],
+                                     declarations: [TestHostComponent, EditComponent],
+                                     schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
+                                   })
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -56,7 +63,7 @@ describe('EditComponent', () => {
   it('should emit output value on edit enter key', fakeAsync(() => {
     component.editComponent.wordInput.setValue('Test');
     fixture.debugElement.query(By.css('#word'))
-      .triggerEventHandler('keydown', new KeyboardEvent('keydown', { key: 'Enter' }));
+      .triggerEventHandler('keydown', new KeyboardEvent('keydown', {key: 'Enter'}));
     tick();
     expect(component.outputValue).toEqual(expectedValue);
   }));
@@ -82,7 +89,7 @@ describe('EditComponent', () => {
 
   it('should display wordValue after enter key', () => {
     fixture.debugElement.query(By.css('#word'))
-      .triggerEventHandler('keydown', new KeyboardEvent('keydown', { key: 'Enter' }));
+      .triggerEventHandler('keydown', new KeyboardEvent('keydown', {key: 'Enter'}));
     component.isEdit = false;
     fixture.detectChanges();
     const doesItDisplayWord = fixture.debugElement.query(By.css('.word-value')).nativeElement.textContent;

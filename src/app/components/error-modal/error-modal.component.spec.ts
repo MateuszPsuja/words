@@ -1,7 +1,7 @@
 import {By} from '@angular/platform-browser';
 import {of} from 'rxjs';
 import {Store} from '@ngrx/store';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {
   Component,
   ViewChild,

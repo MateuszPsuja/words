@@ -1,7 +1,7 @@
-import { TestBed, getTestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {TestBed, getTestBed} from '@angular/core/testing';
+import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 
-import { TranslateApiService } from './translate-api.service';
+import {TranslateApiService} from './translate-api.service';
 
 describe('TranslateApiService', () => {
   let injector: TestBed;
@@ -16,9 +16,9 @@ describe('TranslateApiService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule ],
-      providers: [ TranslateApiService ],
-    });
+                                     imports: [HttpClientTestingModule],
+                                     providers: [TranslateApiService],
+                                   });
 
     injector = getTestBed();
     service = injector.get(TranslateApiService);
@@ -44,7 +44,8 @@ describe('TranslateApiService', () => {
 
     it('should get error response', () => {
       service.translate('verb', 'en|pl').subscribe(
-        () => {},
+        () => {
+        },
         (err) => {
           expect(err).toBeTruthy();
         });
@@ -53,7 +54,8 @@ describe('TranslateApiService', () => {
     });
 
     it('should have parameters', () => {
-      service.translate('verb', 'en|pl').subscribe(() => {});
+      service.translate('verb', 'en|pl').subscribe(() => {
+      });
 
       const reqMock = httpMock.expectOne(req => req.url === service.url);
       expect(reqMock.request.params.has('q')).toBeTruthy();

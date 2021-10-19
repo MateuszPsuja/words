@@ -1,9 +1,9 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
-import { Component, NO_ERRORS_SCHEMA, ViewChild } from '@angular/core';
-import { By } from '@angular/platform-browser';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {ReactiveFormsModule} from '@angular/forms';
+import {Component, NO_ERRORS_SCHEMA, ViewChild} from '@angular/core';
+import {By} from '@angular/platform-browser';
 
-import { FilterComponent } from './filter.component';
+import {FilterComponent} from './filter.component';
 
 describe('FilterComponent', () => {
   const expectedValue = 'string';
@@ -11,10 +11,11 @@ describe('FilterComponent', () => {
   let fixture: ComponentFixture<TestHostComponent>;
 
   @Component({
-    template: `<app-filter (filterString)="getOutput($event)"></app-filter>`,
-  })
+               template: `
+                 <app-filter (filterString)="getOutput($event)"></app-filter>`,
+             })
   class TestHostComponent {
-    @ViewChild(FilterComponent, /* TODO: add static flag */ <any>{})
+    @ViewChild(FilterComponent, <any>{})
     public filterComponent: FilterComponent;
     public filterStringOutput = 'none';
 
@@ -25,11 +26,11 @@ describe('FilterComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ ReactiveFormsModule ],
-      declarations: [ TestHostComponent, FilterComponent ],
-      schemas: [ NO_ERRORS_SCHEMA ],
-    })
-    .compileComponents();
+                                     imports: [ReactiveFormsModule],
+                                     declarations: [TestHostComponent, FilterComponent],
+                                     schemas: [NO_ERRORS_SCHEMA],
+                                   })
+      .compileComponents();
   }));
 
   beforeEach(() => {

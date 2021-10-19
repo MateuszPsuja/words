@@ -1,15 +1,15 @@
-import { BehaviorSubject, Observable } from 'rxjs';
-import { TestBed } from '@angular/core/testing';
-import { provideMockActions } from '@ngrx/effects/testing';
-import { hot, cold } from 'jasmine-marbles';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {TestBed} from '@angular/core/testing';
+import {provideMockActions} from '@ngrx/effects/testing';
+import {hot, cold} from 'jasmine-marbles';
 
-import { TranslateApiService } from './../../../services/translate-api.service';
-import { WordsApiService } from './../../../services/words-api.service';
-import { WordsEffects } from './words.effects';
+import {TranslateApiService} from './../../../services/translate-api.service';
+import {WordsApiService} from './../../../services/words-api.service';
+import {WordsEffects} from './words.effects';
 import * as WordsActions from './words.actions';
 import {WordsAction} from './words.interfaces';
 
-const mockWordPayload = { id: '98798', word: 'Shift' };
+const mockWordPayload = {id: '98798', word: 'Shift'};
 
 const mockTranslatePayload = {
   id: '123123',
@@ -48,13 +48,13 @@ describe('Words effects', () => {
     mockTranslateApiService.translate.and.returnValue(responseTranslate);
 
     TestBed.configureTestingModule({
-      providers: [
-        WordsEffects,
-        provideMockActions(() => actions),
-        { provide: WordsApiService, useValue: mockWordsApiService },
-        { provide: TranslateApiService, useValue: mockTranslateApiService },
-      ],
-    });
+                                     providers: [
+                                       WordsEffects,
+                                       provideMockActions(() => actions),
+                                       {provide: WordsApiService, useValue: mockWordsApiService},
+                                       {provide: TranslateApiService, useValue: mockTranslateApiService},
+                                     ],
+                                   });
 
     effects = TestBed.inject(WordsEffects);
   });
@@ -64,8 +64,8 @@ describe('Words effects', () => {
       const action = new WordsActions.GetWord();
       const completion = new WordsActions.GetWordSuccess(mockWordPayload);
 
-      actions = hot('--a-', { a: action });
-      const expected = cold('--b', { b: completion });
+      actions = hot('--a-', {a: action});
+      const expected = cold('--b', {b: completion});
 
       expect(effects.getWord$).toBeObservable(expected);
       expect(mockWordsApiService.word).toHaveBeenCalled();
@@ -81,8 +81,8 @@ describe('Words effects', () => {
       const action = new WordsActions.GetWord();
       const completion = new WordsActions.GetWordError('error message');
 
-      actions = hot('--a-', { a: action });
-      const expected = cold('--b', { b: completion });
+      actions = hot('--a-', {a: action});
+      const expected = cold('--b', {b: completion});
 
       expect(effects.getWord$).toBeObservable(expected);
       expect(mockWordsApiService.word).toHaveBeenCalled();
@@ -97,8 +97,8 @@ describe('Words effects', () => {
         mockTranslatePayload,
       );
 
-      actions = hot('--a-', { a: action });
-      const expected = cold('--b', { b: completion });
+      actions = hot('--a-', {a: action});
+      const expected = cold('--b', {b: completion});
       expect(effects.translateWord$).toBeObservable(expected);
       expect(mockTranslateApiService.translate).toHaveBeenCalled();
     });
@@ -113,8 +113,8 @@ describe('Words effects', () => {
       const action = new WordsActions.TranslateWord(mockWordToTranslate);
       const completion = new WordsActions.TranslateWordError('error message');
 
-      actions = hot('--a-', { a: action });
-      const expected = cold('--b', { b: completion });
+      actions = hot('--a-', {a: action});
+      const expected = cold('--b', {b: completion});
 
       expect(effects.translateWord$).toBeObservable(expected);
       expect(mockTranslateApiService.translate).toHaveBeenCalled();

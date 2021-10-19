@@ -1,10 +1,10 @@
-  <ng-template #template>
-    <div class="modal-header">
-      <h4 class="modal-title pull-left">{{ (errorData$ | async).code }} {{ (errorData$ | async).codeText }}</h4>
-      <button type="button" class="close pull-right" (click)="closeModal()">
-      </button>
-    </div>
-    <div class="modal-body">
-      {{ (errorData$ | async).errorMessage }}
-    </div>
-  </ng-template>
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{ (errorData$ | async).code }} {{ (errorData$ | async).codeText }}</h4>
+    <button type="button" class="close pull-right" (click)="closeModal()">
+    </button>
+  </div>
+  <div class="modal-body">
+    {{ (errorData$ | async).errorMessage }}
+  </div>
+</ng-template>

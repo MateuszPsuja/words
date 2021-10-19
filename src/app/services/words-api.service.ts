@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs/';
-import {WordData} from '../modules/words/components/table/table.component';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {Observable} from 'rxjs/';
+
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class WordsApiService {
@@ -10,7 +10,8 @@ export class WordsApiService {
   readonly apiKey = environment.wordsApiKey;
   readonly url = environment.wordsApiUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   public word(): Observable<any> {
     let params = new HttpParams();
@@ -18,6 +19,6 @@ export class WordsApiService {
     params = params.append('includePartOfSpeech', 'noun');
     params = params.append('hasDictionaryDef', 'true');
     params = params.append('minDictionaryCount', '1');
-    return this.http.get(this.url, { params });
+    return this.http.get(this.url, {params});
   }
 }

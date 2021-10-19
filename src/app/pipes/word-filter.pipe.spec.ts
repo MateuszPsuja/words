@@ -1,4 +1,4 @@
-import { WordFilterPipe } from './word-filter.pipe';
+import {WordFilterPipe} from './word-filter.pipe';
 
 const valueMock = [
   {

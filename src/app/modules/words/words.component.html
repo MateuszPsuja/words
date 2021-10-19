@@ -7,7 +7,7 @@
       <button class="btn btn-primary add-button" type="button" (click)="addWord()">Add</button>
     </div>
   </div>
-</div><!-- card end -->
+</div>
 <app-filter (filterString)="searchStringChanged($event)"></app-filter>
 <app-table
   [wordsTablePaginated$]="wordsTablePaginated$"

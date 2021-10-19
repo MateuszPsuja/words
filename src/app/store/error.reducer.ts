@@ -1,6 +1,4 @@
-import { ActionReducer, Action } from '@ngrx/store';
-
-import { ErrorState, ErrorAction, ErrorData } from './error.interfaces';
+import {ErrorState} from './error.interfaces';
 import * as appActions from './error.actions';
 
 const initialState: ErrorState = {
@@ -20,7 +18,7 @@ export function errorReducer(
     case appActions.SET_ERROR: {
       return {
         isError: true,
-        error: { ...action.payload },
+        error: {...action.payload},
       };
     }
 

@@ -1,5 +1,5 @@
-import { errorReducer } from './error.reducer';
-import { SET_ERROR, CLEAR_ERROR } from './error.actions';
+import {errorReducer} from './error.reducer';
+import {SET_ERROR, CLEAR_ERROR} from './error.actions';
 
 const mockErrorState = {
   isError: false,
@@ -39,7 +39,7 @@ describe('Errors reducers', () => {
     it('should handle [Error] Set Error', () => {
       const setErrorReducer = errorReducer(
         mockErrorState,
-        { type: SET_ERROR, payload: setErrorPayload },
+        {type: SET_ERROR, payload: setErrorPayload},
       );
       expect(setErrorReducer).toEqual(expectedErrorState);
     });
@@ -47,7 +47,7 @@ describe('Errors reducers', () => {
     it('should handle [Error] Clear Error', () => {
       const clearErrorReducer = errorReducer(
         mockErrorDataState,
-        { type: CLEAR_ERROR },
+        {type: CLEAR_ERROR},
       );
       expect(clearErrorReducer).toEqual(mockErrorState);
     });

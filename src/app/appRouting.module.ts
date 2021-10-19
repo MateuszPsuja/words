@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import {NotFoundComponent} from './components/not-found/not-found.component';
 
 const appRoutes: Routes = [
   {
@@ -29,9 +29,10 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
-  ],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
+            imports: [
+              RouterModule.forRoot(appRoutes, {relativeLinkResolution: 'legacy'}),
+            ],
+            exports: [RouterModule],
+          })
+export class AppRoutingModule {
+}

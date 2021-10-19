@@ -1,6 +1,6 @@
-import { Action } from '@ngrx/store';
+import {Action} from '@ngrx/store';
 
-import { Word } from './words.interfaces';
+import {Word} from './words.interfaces';
 
 export const GET_WORD = '[Words] Get word';
 export const GET_WORD_SUCCESS = '[Words] Get word success';
@@ -19,25 +19,29 @@ export class GetWord implements Action {
 export class GetWordSuccess implements Action {
   readonly type = GET_WORD_SUCCESS;
 
-  constructor(public payload: Word) {}
+  constructor(public payload: Word) {
+  }
 }
 
 export class GetWordError implements Action {
   readonly type = GET_WORD_ERROR;
 
-  constructor(public payload: any) {}
+  constructor(public payload: any) {
+  }
 }
 
 export class DeleteWord implements Action {
   readonly type = DELETE_WORD;
 
-  constructor(public payload: string) {}
+  constructor(public payload: string) {
+  }
 }
 
 export class EditWord implements Action {
   readonly type = EDIT_WORD;
 
-  constructor(public payload: Word) {}
+  constructor(public payload: Word) {
+  }
 }
 
 export class ClearData implements Action {
@@ -47,19 +51,22 @@ export class ClearData implements Action {
 export class TranslateWord implements Action {
   readonly type = TRANSLATE_WORD;
 
-  constructor(public payload: Word) {}
+  constructor(public payload: Word) {
+  }
 }
 
 export class TranslateWordError implements Action {
   readonly type = TRANSLATE_WORD_ERROR;
 
-  constructor(public payload: any) {}
+  constructor(public payload: any) {
+  }
 }
 
 export class TranslateWordSuccess implements Action {
   readonly type = TRANSLATE_WORD_SUCCESS;
 
-  constructor(public payload: Word) {}
+  constructor(public payload: Word) {
+  }
 }
 
 export type WordsActions =

@@ -1,10 +1,10 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
-import { WordTableRow } from './../modules/words/interfaces/wordTableRow.interface';
+import {WordTableRow} from './../modules/words/interfaces/wordTableRow.interface';
 
 @Pipe({
-  name: 'wordFilter',
-})
+        name: 'wordFilter',
+      })
 export class WordFilterPipe implements PipeTransform {
 
   public transform(value: any, key: string, term: string): WordTableRow[] | number[] {

@@ -1,4 +1,4 @@
-import { WordState, Word } from './words.interfaces';
+import {WordState, Word} from './words.interfaces';
 import * as wordsActions from './words.actions';
 
 const initialState: WordState = {
@@ -26,8 +26,8 @@ export function wordsReducer(
       const randomId: string =
         action.payload.id.toString() === '0'
           ? Math.random()
-              .toString(36)
-              .substr(2, 6)
+            .toString(36)
+            .substr(2, 6)
           : action.payload.id;
 
       const wordPayload = {
@@ -64,7 +64,7 @@ export function wordsReducer(
     case wordsActions.EDIT_WORD: {
       const newModel = state.model.map((item: Word) => {
         return item.id === action.payload.id
-          ? { ...item, word: action.payload.word, translation: '' }
+          ? {...item, word: action.payload.word, translation: ''}
           : item;
       });
 
@@ -97,7 +97,7 @@ export function wordsReducer(
     case wordsActions.TRANSLATE_WORD_SUCCESS: {
       const wordTranslatePayload = state.model.map((item: Word) => {
         return item.id === action.payload.id
-          ? { ...item, translation: action.payload.translation }
+          ? {...item, translation: action.payload.translation}
           : item;
       });
 

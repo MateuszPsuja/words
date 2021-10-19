@@ -1,5 +1,5 @@
-import { Subscription, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {Subscription, Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 import {
   Component,
   OnInit,
@@ -8,21 +8,21 @@ import {
   ViewEncapsulation,
   OnDestroy,
 } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { BsModalService } from 'ngx-bootstrap/modal';
-import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import {Store} from '@ngrx/store';
+import {BsModalService} from 'ngx-bootstrap/modal';
+import {BsModalRef} from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
-import { CLEAR_ERROR } from './../../store/error.actions';
-import { AppState } from './../../interfaces/appState.interface';
+import {CLEAR_ERROR} from './../../store/error.actions';
+import {AppState} from './../../interfaces/appState.interface';
 
 @Component({
-  selector: 'app-error-modal',
-  templateUrl: './error-modal.component.html',
-  encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./error-modal.component.scss'],
-})
+             selector: 'app-error-modal',
+             templateUrl: './error-modal.component.html',
+             encapsulation: ViewEncapsulation.None,
+             styleUrls: ['./error-modal.component.scss'],
+           })
 export class ErrorModalComponent implements OnInit, OnDestroy {
-  @ViewChild('template', { static: true }) public templateRef: TemplateRef<any>;
+  @ViewChild('template', {static: true}) public templateRef: TemplateRef<any>;
 
   public modalRef: BsModalRef;
   public isError: Subscription;
@@ -31,7 +31,8 @@ export class ErrorModalComponent implements OnInit, OnDestroy {
   constructor(
     private modalService: BsModalService,
     private store: Store<AppState>,
-  ) {}
+  ) {
+  }
 
   public ngOnInit() {
     this.isErrorInit();
@@ -60,11 +61,11 @@ export class ErrorModalComponent implements OnInit, OnDestroy {
   }
 
   private openModal(template: TemplateRef<any>): void {
-    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+    this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
   }
 
   public closeModal(): void {
-    this.store.dispatch({ type: CLEAR_ERROR });
+    this.store.dispatch({type: CLEAR_ERROR});
     this.modalRef.hide();
   }
 }
