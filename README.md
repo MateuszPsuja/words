@@ -1,7 +1,7 @@
 # Words
 Words
 Application adds random words to store.
-Displays table of words with CRUD functions and translation.
+Display table of words with CRUD functions and translation.
 
 Features: NGRX, lazy loading, lettable operators, tests, marble tests
 
