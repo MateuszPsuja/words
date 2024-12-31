@@ -1,5 +1,5 @@
 import {Component, OnInit, EventEmitter, Output, ChangeDetectionStrategy} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 
 @Component({
              selector: 'app-filter',
@@ -11,13 +11,13 @@ export class FilterComponent implements OnInit {
 
   @Output() filterString: EventEmitter<string> = new EventEmitter();
 
-  public filterInput: FormControl;
+  public filterInput: UntypedFormControl;
 
   constructor() {
   }
 
   ngOnInit() {
-    this.filterInput = new FormControl('');
+    this.filterInput = new UntypedFormControl('');
   }
 
   public clearFilter(): void {

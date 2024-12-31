@@ -143,7 +143,6 @@
       }
     }
   },
-  "defaultProject": "angular-starter",
   "cli": {
     "warnings": {}
   },

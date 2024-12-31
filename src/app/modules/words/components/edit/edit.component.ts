@@ -2,7 +2,7 @@ import {
   Component, OnInit, Input, Output, EventEmitter, ViewChild,
   OnChanges, SimpleChanges, ChangeDetectionStrategy, ElementRef,
 } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 
 @Component({selector: 'app-edit', templateUrl: './edit.component.html',
              styleUrls: ['./edit.component.scss'], changeDetection: ChangeDetectionStrategy.OnPush,
@@ -15,13 +15,13 @@ export class EditComponent implements OnInit, OnChanges {
   @Output() changedWordValue: EventEmitter<any> = new EventEmitter<any>(true);
   @ViewChild('word') wordInputElement: ElementRef;
 
-  public wordInput: FormControl;
+  public wordInput: UntypedFormControl;
 
   constructor() {
   }
 
   public ngOnInit() {
-    this.wordInput = new FormControl(this.wordValue);
+    this.wordInput = new UntypedFormControl(this.wordValue);
   }
 
   public ngOnChanges(changes: SimpleChanges) {
