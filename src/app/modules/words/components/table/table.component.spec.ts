@@ -1,4 +1,4 @@
-import {BehaviorSubject} from 'rxjs/';
+import {BehaviorSubject} from 'rxjs';
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {Component, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {By} from '@angular/platform-browser';

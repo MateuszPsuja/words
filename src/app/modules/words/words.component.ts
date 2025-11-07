@@ -59,7 +59,7 @@ export class WordsComponent implements OnInit, OnDestroy {
 
   public changeCurrentPage(page: PageChangedEvent) {
     this.currentPage = page.page;
-    this.paginationObs$.next();
+    this.paginationObs$.next(this.currentPage);
   }
 
   public deleteWord(wordId: number): void {
